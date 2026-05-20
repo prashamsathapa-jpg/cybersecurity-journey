@@ -1,0 +1,33 @@
+# Day 9 - Networking Basics (IP & Ports)
+
+## What I learned today:
+Networking is the foundation of cybersecurity. Every device has an IP address and services run on ports.
+
+---
+
+## Key concepts:
+- IP address = device location in network
+- Port = entry point for services
+- One IP can have many services
+
+---
+
+## Commands used:
+- ip a → show IP address
+- ss -tuln → show open ports
+- ping → test network connectivity
+
+---
+
+## Example:
+SSH runs on port 22 and allows remote login.
+
+---
+
+## Security importance:
+Attackers scan IPs and ports to find exposed services.
+
+---
+
+## Conclusion:
+Understanding networking is essential for both attacking and defending systems.

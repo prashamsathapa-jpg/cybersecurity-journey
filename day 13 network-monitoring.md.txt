@@ -1,0 +1,36 @@
+# Day 13 - Network Monitoring & Connections
+
+## What I Learned Today:
+Network monitoring is used to view active connections (sockets) between a local Linux machine and remote servers. Attackers must use network connections to control malware or steal data, making this a critical area for security analysts to monitor.
+
+---
+
+## Commands Used:
+- `ss -tuna` → Displays all active TCP and UDP connections using raw numbers for IP addresses and ports.
+- `sudo ss -tunap` → Shows connections along with the exact Process Name and PID responsible for the traffic (requires admin rights).
+- `ss -tuna | grep 443` → Filters active connections specifically for secure web traffic (HTTPS on Port 443).
+- `sudo tcpdump -c 5` → Packet sniffer that captures and displays 5 live network data packets moving through the network card.
+- `timeout 3 nc -v google.com 80 & sleep 0.5; ss -tuna | grep 80` → Chained command used to simulate a web connection and instantly catch it in the network log while active.
+
+---
+
+## Key Concepts:
+- **Sockets:** A connection endpoint made of an **IP Address + a Port Number** (e.g., `192.168.1.50:443`).
+- **Common Ports:** Port 80 (HTTP Web), Port 443 (HTTPS Secure Web), and Port 22 (SSH Remote Access).
+- **Connection States:** 
+  - `LISTEN` → The system is waiting for an incoming connection (like a backdoor or a server).
+  - `ESTAB` (Established) → The system is currently connected and actively talking to a remote computer.
+- **Single Terminal Chaining:** Running network tasks in the background (`&`) allows a single terminal to trigger a connection and analyze it at the exact same millisecond.
+
+---
+
+## Lab Practice:
+- Investigated active network connections using `ss` to map outbound traffic.
+- Monitored live network card traffic snapshots using `tcpdump`.
+- Successfully generated a background network request to Google and intercepted the live `ESTAB` (Established) socket state over Port 80 before the connection closed.
+
+---
+
+## Conclusion:
+Processes tell you *what* is running, but network monitoring tells you *who* those processes are talking to. Monitoring open sockets is vital for discovering hidden malware communication channels.
+

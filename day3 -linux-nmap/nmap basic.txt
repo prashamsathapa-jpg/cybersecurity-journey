@@ -1,0 +1,46 @@
+# Day 3 - Network Scanning with Nmap
+
+## What I learned today:
+Nmap is a network scanning tool used in cybersecurity to discover open ports and running services on a system.
+
+It helps identify what services are exposed and potentially vulnerable.
+
+---
+
+## What I practiced:
+- Installed Nmap on Ubuntu
+- Scanned localhost (my own machine)
+- Performed service detection scan
+
+---
+
+## Commands used:
+- sudo apt install nmap → install Nmap
+- nmap localhost → basic port scan
+- nmap -sV localhost → service version detection
+
+---
+
+## Example output:
+PORT   STATE SERVICE
+22/tcp open  ssh
+
+This shows that SSH service is running on port 22.
+
+---
+
+## Key concepts learned:
+- A port is like a door to a service on a computer
+- Open ports mean services are accessible
+- Scanning helps identify system exposure
+
+---
+
+## Why this matters in cybersecurity:
+Attackers scan systems to find open ports and weak services.
+Security professionals use Nmap to detect and secure systems before attackers can exploit them.
+
+---
+
+## Conclusion:
+I learned how to scan my own system and understand which services are running and exposed using Nmap.

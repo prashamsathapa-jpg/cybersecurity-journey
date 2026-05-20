@@ -1,0 +1,36 @@
+# Day 12 - Processes & System Monitoring
+
+## What I Learned Today:
+A process is a running program or service in Linux. Every process is assigned a unique tracking number called a PID (Process ID). Security professionals actively monitor these to spot unauthorized or hidden software.
+
+---
+
+## Commands Used:
+- `ps aux` → Lists all running processes across the entire system.
+- `top` → Opens the live, interactive system monitor (press `q` to exit).
+- `ps aux | grep ssh` → Uses a pipe (`|`) to send process lists to `grep` to filter specifically for SSH processes.
+- `sleep 300 &` → Starts a test command and uses the ampersand (`&`) to run it silently in the background.
+- `ps aux | grep sleep` → Finds the unique Process ID (PID) of the background sleep command.
+- `kill PID` → Stops/terminates a running process (replace `PID` with the actual number found).
+
+---
+
+## Key Concepts:
+- **Resource Consumption:** Active processes use up vital hardware energy (CPU and Memory/RAM).
+- **Defense Mindset:** Attackers often mask malicious programs with normal-sounding names or run them quietly in the background (e.g., crypto miners, reverse shells).
+- **Process Management:** Knowing how to quickly identify a PID and terminate it safely is an essential incident response skill.
+
+---
+
+## Lab Practice:
+- Viewed all active system tasks using static and live monitoring dashboards (`ps aux` and `top`).
+- Filtered specific running applications using `ps aux | grep <name>`.
+- Launched a background process (`sleep 300 &`), tracked its unique PID, and successfully neutralized it using the `kill` command.
+- Simulating a threat hunt: Caught a hidden process disguised under a fake system name.
+
+---
+
+## Conclusion:
+Monitoring processes is an essential part of system security, performance optimization, and threat detection. 
+
+---

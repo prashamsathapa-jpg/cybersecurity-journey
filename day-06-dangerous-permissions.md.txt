@@ -1,0 +1,28 @@
+# Day 6 - Dangerous File Permissions
+
+## What I learned today:
+Incorrect file permissions can create serious security vulnerabilities.
+
+---
+
+## Lab practice:
+Created a file and changed permissions to simulate a vulnerable system.
+
+Commands used:
+- chmod 777 → gives full access to everyone (dangerous)
+- chmod 600 → restricts access to owner only (secure)
+
+---
+
+## Key lesson:
+Never give full permissions (777) on important files.
+
+---
+
+## Real attack scenario:
+Attackers look for world-writable files to inject malicious content or gain access.
+
+---
+
+## Conclusion:
+File permissions are a critical part of system security and must be configured carefully.

@@ -1,0 +1,33 @@
+# Day 11 - File Permissions Deep Dive
+
+## What I learned today:
+Linux file permissions control access at three levels: owner, group, and others.
+
+---
+
+## Permission types:
+- r = read
+- w = write
+- x = execute
+
+---
+
+## Commands used:
+- ls -l → view permissions
+- chmod 777 → full access (unsafe)
+- chmod 700 → only owner access (secure)
+
+---
+
+## Key insight:
+Incorrect permissions can lead to system vulnerabilities.
+
+---
+
+## Security importance:
+Attackers search for misconfigured permissions to gain access or modify files.
+
+---
+
+## Conclusion:
+Proper file permission management is essential for system security.

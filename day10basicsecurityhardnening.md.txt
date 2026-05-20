@@ -1,0 +1,29 @@
+# Day 10 - Basic Security Hardening
+
+## What I learned today:
+Security hardening is the process of reducing system vulnerabilities by disabling unnecessary services and restricting access.
+
+---
+
+## Commands used:
+- ss -tuln → check open ports
+- systemctl list-units → check running services
+- nano /etc/ssh/sshd_config → edit SSH config
+- systemctl restart ssh → restart SSH service
+
+---
+
+## Key concepts:
+- Every open port is a potential attack surface
+- Unused services should be disabled
+- Root login should be disabled for security
+
+---
+
+## Security improvement:
+I learned how to start securing SSH by disabling root login and checking active services.
+
+---
+
+## Conclusion:
+Hardening reduces attack surface and is a key part of cybersecurity defense.

@@ -1,0 +1,29 @@
+# Day 8 - Searching Inside Files with grep
+
+## What I learned today:
+The grep command searches for text inside files. Attackers use it to find passwords, emails, and secrets stored in files.
+
+---
+
+## Commands learned:
+- grep "word" file → search in file
+- grep -r "word" . → search recursively
+- sudo grep -r "word" / → search whole system
+
+---
+
+## Lab practice:
+Created files with fake secrets and searched for:
+- password
+- admin
+- email
+
+---
+
+## Security insight:
+Many systems store passwords and sensitive data in plain text files. Attackers search for keywords to find them.
+
+---
+
+## Conclusion:
+grep is one of the most powerful tools used after gaining system access.

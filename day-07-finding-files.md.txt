@@ -1,0 +1,29 @@
+# Day 7 - Finding Files & Sensitive Data
+
+## What I learned today:
+Attackers search systems for sensitive files like passwords, configs, and databases.
+
+---
+
+## Commands learned:
+- find . -name "filename" → search in current directory
+- find / -name "*.conf" → search entire system
+- 2>/dev/null → hide permission errors
+
+---
+
+## Lab practice:
+Created multiple files and searched for:
+- password files
+- text files
+- config files
+
+---
+
+## Why this matters:
+Attackers often search systems for files containing passwords or sensitive information.
+
+---
+
+## Conclusion:
+Learning to search files is essential for both attackers and defenders in cybersecurity.

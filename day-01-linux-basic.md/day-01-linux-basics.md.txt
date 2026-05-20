@@ -1,0 +1,13 @@
+# Day 1 - Linux Basics
+
+## Commands learned:
+- pwd
+- ls
+- cd
+- mkdir
+
+## What I did:
+Created folders and navigated Linux system.
+
+## Notes:
+Linux is the foundation of cybersecurity.

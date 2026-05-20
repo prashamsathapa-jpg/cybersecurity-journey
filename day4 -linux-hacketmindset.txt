@@ -1,0 +1,33 @@
+# Day 4 - Hacker Mindset (Cybersecurity Thinking)
+
+## What I learned today:
+Cybersecurity is about thinking like an attacker to defend systems better.
+
+Attackers follow steps:
+1. Reconnaissance (gather information)
+2. Scanning (find open ports/services)
+3. Exploitation (use vulnerabilities)
+4. Access & persistence
+5. Cover tracks
+
+---
+
+## What I practiced:
+- Understood how Nmap output can be used by attackers
+- Identified open SSH port (22)
+- Thought about system exposure and security risks
+
+---
+
+## Key concept:
+Every open port is a possible entry point into a system.
+
+---
+
+## Example:
+Port 22 (SSH) is open to allow remote login. If misconfigured, it can be exploited.
+
+---
+
+## Conclusion:
+I learned how attackers think during the early stages of an attack and how system scanning helps identify exposed services.

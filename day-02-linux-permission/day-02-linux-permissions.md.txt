@@ -1,0 +1,30 @@
+# Day 2 - Linux Permissions
+
+## What I learned today:
+Linux file permissions control who can read, write, or execute a file.
+
+## Permission types:
+- r = read (view file)
+- w = write (edit file)
+- x = execute (run file)
+
+## Permission structure:
+Example: -rw-r--r--
+- Owner permissions
+- Group permissions
+- Others permissions
+
+## Commands used:
+- ls -l → shows file permissions
+- chmod → changes permissions
+
+## Examples:
+- chmod 777 file → full access (unsafe in real systems)
+- chmod 644 file → safe default for files
+- chmod 600 file → only owner can access
+
+## What I practiced:
+Created files and changed permissions using chmod.
+
+## Why it matters in cybersecurity:
+Incorrect file permissions can lead to unauthorized access, which attackers can exploit.
