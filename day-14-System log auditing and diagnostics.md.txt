@@ -1,0 +1,31 @@
+# Day 14 - System Log Auditing & Diagnostics
+
+## What I Learned Today:
+System logs act as the "black box" flight recorder of a Linux system. Security analysts parse logs to discover brute-force attacks, trace unauthorized user creations, and diagnose system errors.
+
+---
+
+## Commands Used:
+- `less /var/log/auth.log` → Safely navigates authentication and login records line by line.
+- `tail -n 20 /var/log/syslog` → Displays only the last 20 events recorded in the main system log.
+- `tail -f /var/log/syslog` → Establishes a live stream to watch incoming system logs in real-time.
+- `journalctl -p err` → Filters modern systemd binary logs to show only error entries.
+- `grep "Authentication failure" /var/log/auth.log` → Extracts security events related to failed login attempts.
+
+---
+
+## Key Concepts:
+- **Log Repository (`/var/log/`):** The central directory where Linux stores subsystem logs.
+- **`auth.log` vs `syslog`:** `auth.log` tracks security parameters (passwords, `sudo`, users), while `syslog` tracks general operating system health and background daemons.
+- **Forensic Footprints:** Actions like failing a password or attempting to switch to an invalid user cannot be hidden from the kernel logs; they create irreversible auditing tracks.
+
+---
+
+## Lab Practice:
+- Navigated through system logs using resource-safe commands (`less`, `tail`).
+- Simulating a threat hunt: Intentionally triggered an authentication violation (`su intruder`), identified where the record was stored, and extracted the evidence using text manipulation filters (`grep`).
+
+---
+
+## Conclusion:
+Log analysis is the foundation of incident response. Being able to quickly filter through thousands of entries to identify a single malicious login attempt is a vital skill for any entry-level security professional.
