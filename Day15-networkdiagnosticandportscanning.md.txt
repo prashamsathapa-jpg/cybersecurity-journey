@@ -1,0 +1,33 @@
+# Day 15 - Network Diagnostics & Port Scanning
+
+## What I Learned Today:
+Network reconnaissance is the first phase of both offensive hacking and defensive security auditing. Using tools like `nmap` allows analysts to discover active hosts on a network and identify open communication ports.
+
+---
+
+## Commands Used:
+- `nmap 127.0.0.1` → Performs a basic network scan of the local loopback address.
+- `nmap -sV 127.0.0.1` → Scans the target host and attempts to determine the exact software version running on open ports.
+- `sudo apt install nmap` → Installs the Network Mapper utility via the package manager.
+
+---
+
+## Key Concepts:
+- **Reconnaissance:** Gathering baseline data about a target system's network profile before executing security assessments.
+- **Port States:**
+  - `Open` → Welcoming connections; represents a potential attack surface.
+  - `Closed` → Accessible but unresponsive.
+  - `Filtered` → Protected by a firewall layer that drops scanning packets.
+- **Service Verification (`-sV`):** Crucial for vulnerability management. Identifying exact software versions allows defenders to patch known security flaws before they are exploited.
+
+---
+
+## Lab Practice:
+- Verified network scanner configurations on the ThinkPad workspace.
+- Executed a local reconnaissance sweep using loopback tracking (`127.0.0.1`).
+- Analyzed an active port inventory table mapping ports, states, and background software daemons.
+
+---
+
+## Conclusion:
+You cannot secure what you do not know exists. Port scanning provides a transparent inventory of a system's network exposure, serving as a core auditing method for threat exposure management.
