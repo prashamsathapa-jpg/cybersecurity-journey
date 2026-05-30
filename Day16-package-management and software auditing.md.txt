@@ -1,0 +1,31 @@
+# Day 16 - Package Management & Software Auditing
+
+## What I Learned Today:
+Package management is the gatekeeper of software integrity in Linux. Security analysts audit installed packages to maintain robust patch levels and ensure unauthorized applications are not running on production systems.
+
+---
+
+## Commands Used:
+- `sudo apt update` → Synchronizes the local package index file with the official online repositories.
+- `sudo apt upgrade` → Installs the newest versions of all packages currently installed on the system.
+- `apt list --installed` → Lists every application and utility package installed on the OS.
+- `apt list --installed | grep <package_name>` → Audits the system inventory to check for the presence and version of a specific package.
+
+---
+
+## Key Concepts:
+- **Centralized Repositories:** Linux installs software from cryptographically signed official mirrors to eliminate the threat of malicious browser-based drive-by downloads.
+- **Dependencies:** Sub-packages and library tools that an application requires to run correctly.
+- **Software Audit:** The process of reviewing software inventories to confirm all systems run secure, vetted, and compliant versions.
+
+---
+
+## Lab Practice:
+- Synchronized repository indices to pull down critical security catalogs.
+- Audited the local machine's package registry by printing a comprehensive listing of installed systems.
+- Utilized text manipulation streams to isolate and verify the presence and version details of the network auditing package (`nmap`).
+
+---
+
+## Conclusion:
+Patch management is a fundamental requirement of cybersecurity hygiene. Regularly updating package registries and verifying system components is the most effective way to eliminate known software vulnerabilities before exploit attempts occur.
