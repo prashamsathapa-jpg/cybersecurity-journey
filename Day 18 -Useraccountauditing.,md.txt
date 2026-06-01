@@ -1,0 +1,30 @@
+# Day 18 - User Account Auditing & Privilege Management
+
+## What I Learned Today:
+Identity management is a critical security boundary. Linux tracks local users via structural files within `/etc/`. Security defenders audit these registries to ensure malicious local persistence accounts have not been injected into the architecture.
+
+---
+
+## Commands Used:
+- `less /etc/passwd` → Safely parses the primary local user registry file line by line.
+- `awk -F: '$3 == 0 {print $1}' /etc/passwd` → Filters the user registry to isolate and display only accounts possessing full administrative privileges (UID 0).
+
+---
+
+## Key Concepts:
+- **Identity Architecture:** - `/etc/passwd` stores user profiles, home paths, and structural IDs.
+  - `/etc/shadow` isolates encrypted account passwords away from standard user visibility.
+- **The Power of UID 0:** The Linux kernel recognizes administrative permissions exclusively through User IDs (UIDs). Any user mapped to `UID 0` inherits absolute root authority, regardless of their text username.
+- **Backdoor Account Audit:** Systematically scanning local identification maps to catch malicious users created by threat actors to bypass security gates.
+
+---
+
+## Lab Practice:
+- Investigated the operational construction of system credentials and user properties on the ThinkPad workspace.
+- Executed an automated database audit using field extraction parsing (`awk`) to locate hidden administrative accounts.
+- Confirmed system baseline security integrity by verifying that only the default `root` master account held administrative authority.
+
+---
+
+## Conclusion:
+Maintaining clean user environments is essential for access management. Routinely auditing UIDs and verifying who has permissions prevents attackers from establishing permanent hidden channels inside production servers.
