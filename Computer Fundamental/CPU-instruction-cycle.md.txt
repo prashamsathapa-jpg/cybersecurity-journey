@@ -1,0 +1,33 @@
+# CPU Instruction Cycle
+
+## What is it?
+
+The instruction cycle is the process a CPU follows to execute
+instructions from a program.
+
+## 1. Fetch
+
+The CPU retrieves the next instruction from memory.
+
+## 2. Decode
+
+The CPU interprets the instruction and determines what operation
+needs to be performed.
+
+## 3. Execute
+
+The CPU performs the required operation.
+
+## 4. Store
+
+The result is stored in a register or memory when necessary.
+
+## Flow
+
+Fetch → Decode → Execute → Store → Fetch...
+
+## Why I am revising this
+
+Understanding instruction execution gives me a foundation for
+understanding operating systems, memory, processes, malware analysis,
+and low-level security concepts.
