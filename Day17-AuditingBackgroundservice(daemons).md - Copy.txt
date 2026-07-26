@@ -10,7 +10,7 @@ Background services in Linux are known as Daemons. They are controlled by the ma
 - `systemctl status <service>` → Returns a detailed operational health statement of a specific daemon, including its PID and boot state.
 - `sudo systemctl stop <service>` → Forcefully halts a running background service immediately.
 - `sudo systemctl start <service>` → Initializes and boots a background service execution layer.
-
+- sudo systemctl mask  → Completely locks down a service, preventing background system sockets or triggers from activating it
 ---
 
 ## Key Concepts:

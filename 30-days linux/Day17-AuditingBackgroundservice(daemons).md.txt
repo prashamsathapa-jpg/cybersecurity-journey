@@ -1,0 +1,31 @@
+# Day 17 - Auditing Background Services (Daemons)
+
+## What I Learned Today:
+Background services in Linux are known as Daemons. They are controlled by the master init process, `systemd` (PID 1). Security analysts audit these services to identify persistent threats and minimize the system's attack surface.
+
+---
+
+## Commands Used:
+- `systemctl list-units --type=service` → Lists all active background services currently managed by the OS.
+- `systemctl status <service>` → Returns a detailed operational health statement of a specific daemon, including its PID and boot state.
+- `sudo systemctl stop <service>` → Forcefully halts a running background service immediately.
+- `sudo systemctl start <service>` → Initializes and boots a background service execution layer.
+- sudo systemctl mask  → Completely locks down a service, preventing background system sockets or triggers from activating it
+---
+
+## Key Concepts:
+- **Daemons:** Software processes that run non-interactively in the background to handle system functions.
+- **Persistence Threat:** Attackers configure malware to run as an `enabled` systemd service so it auto-starts every time the machine boots up.
+- **System Control (`systemctl`):** The primary administrative command line utility used to audit, modify, and manage the systemd framework.
+
+---
+
+## Lab Practice:
+- Audited active system units to map out the baseline operational profile of the ThinkPad environment.
+- Checked live background service logs and identified critical operational details (PIDs, startup configurations).
+- Executed emergency lifecycle operations by killing and safely restarting the local logging mechanism (`rsyslog`).
+
+---
+
+## Conclusion:
+Controlling what services are running is a key component of hardening an operating system. Eliminating unnecessary background daemons directly reduces the avenues an attacker can exploit to maintain persistent access.SS
