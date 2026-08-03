@@ -1,0 +1,61 @@
+# 📓 Day 04: Log Parsing Pipelines, Process Hunting & Security Recon
+
+> **Target Goal:** Learn how to transform raw, noisy log data into actionable security intelligence using Linux pipes, manage background system processes, and understand attacker reconnaissance.
+
+---
+
+## 🛠️ Quick Reference Cheat Sheet
+
+| Command / Pipeline | What It Does | Why SOC Analysts Use It |
+| :--- | :--- | :--- |
+| `>` | Overwrites target file | Resetting log files or creating clean reports |
+| `>>` | Appends to end of target file | Adding new evidence without deleting existing logs |
+| `grep "401"` | Filters lines matching "401" | Isolating failed HTTP authentication attempts |
+| `awk '{print $1}'` | Extracts column 1 | Pulling out IP addresses or usernames from log fields |
+| `sort` | Alphabetically/numerically sorts lines | Groups duplicate lines together (Required for `uniq`) |
+| `uniq -c` | Counts and merges duplicate adjacent lines | Calculating attack frequency per IP address |
+| `ps aux` | Snapshot of all running processes | Finding hidden malware or reverse shells |
+| `kill -9 <PID>` | Force-kills process by Process ID | Emergency incident response / stopping rogue tasks |
+
+---
+
+## 💡 Core Concept 1: The Log-Parsing Assembly Line
+
+Think of Linux piping (`|`) as a factory assembly line. Output from the left flows directly as input to the right.[ Raw Access Logs ]
+│
+▼
+[ grep "401" ]  ──> Filters out successful HTTP requests
+│
+▼
+[ awk '{print $1}' ]  ──> Extracts Column 1 (Source IP Address)
+│
+▼
+[ sort ]  ──> Stacks identical IPs together (CRITICAL STEP)
+│
+▼
+[ uniq -c ]  ──> Merges duplicates & outputs frequency count
+│
+▼
+[ attacker_ips.txt ]  ──> Clean, actionable IP blocklist
+### 🧠 Memory Rules to Never Forget:
+1. **`>` vs `>>` Danger:** `>` wipes the whiteboard clean before writing. `>>` adds a new line at the bottom.
+2. **The `sort` + `uniq` Dependency:** `uniq -c` **ONLY** checks lines that are touching (adjacent). If you don't `sort` first, `uniq` will fail to count identical IPs!
+
+---
+
+## ⚙️ Core Concept 2: Process Hunting (`ps` & `kill`)
+
+Every active task in Linux gets a unique **PID (Process ID)**.
+
+```bash
+# 1. Run a process in the background (&)
+sleep 2000 &
+
+# 2. Hunt for its PID using process list + grep pipeline
+ps aux | grep "sleep"
+
+# 3. Find top memory consuming processes
+ps aux | sort -rnk 4 | head -n 6
+
+# 4. Terminate the rogue process (-9 sends SIGKILL)
+kill -9 <PID>
