@@ -1,0 +1,32 @@
+# Day 5 - Linux Users, Root & Security Privileges
+
+## Overview
+Linux uses a strict permission model based on users, groups, and administrative privileges. Understanding privilege boundary checks, sensitive store locations, and audit logging is critical for identifying privilege escalation and detecting malicious activity as a Security Operations Center (SOC) analyst.
+
+---
+
+## 1. Key Linux Account Commands
+- `whoami`: Displays the active account session.
+- `id`: Prints user ID (UID), primary group ID (GID), and secondary group memberships.
+- `sudo -l`: Lists specific commands the current user can execute with elevated privileges (highlights `NOPASSWD` configurations).
+- `cat /etc/passwd`: Displays registered system accounts, default shells, and UIDs.
+
+---
+
+## 2. Privileged Credentials & File Auditing
+Linux separates account configuration from password hashes to prevent unauthorized credential harvesting.
+
+| File Location | Purpose | Expected Permissions | Security Concern |
+| :--- | :--- | :--- | :--- |
+| `/etc/passwd` | Account metadata, shell, UID/GID | `-rw-r--r--` (World-readable) | Editable by non-root users (`-rw-rw-rw-`) |
+| `/etc/shadow` | Hashed user passwords | `-rw-r-----` (Root / Shadow access only) | Readable by standard users |
+
+```bash
+# Verify permissions on sensitive credential stores
+ls -l /etc/passwd /etc/shadow
+Summary Cheat Sheet
+Privilege Enumeration: whoami, id, sudo -l
+
+SUID Audit: find / -perm -4000 -type f 2>/dev/null
+
+Log Forensics: /var/log/auth.log, last, lastb
